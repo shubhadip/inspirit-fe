@@ -1,0 +1,159 @@
+@import "~bootstrap/scss/bootstrap";
+@import "variables";
+@import "./../fonts/iconmoon/style.scss";
+
+@font-face {
+  font-display: swap;
+  font-family: montserrat-bold;
+  src: local("\263A"),
+    url("./../fonts/montserrat/Montserrat-bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: montserrat-light;
+  src: local("\263A"),
+    url("./../fonts/montserrat/Montserrat-light.otf") format("opentype");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: montserrat;
+  src: local("\263A"),
+    url("./../fonts/montserrat/Montserrat.ttf") format("truetype");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: montserrat-thin;
+  src: local("\263A"),
+    url("./../fonts/montserrat/Montserrat-thin.otf") format("opentype");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "icomoon";
+  src: local("\263A"),
+    url("./../fonts/iconmoon/fonts/icomoon.ttf?bznh19") format("truetype"),
+    url("./../fonts/iconmoon/fonts/icomoon.woff?bznh19") format("woff"),
+    url("./../fonts/iconmoon/fonts/icomoon.svg?bznh19#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class*="icon_"],
+[class*=" icon_"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icomoon" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  font-family: $font-montserrat !important;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+  // background-color: #1fc8db;
+  // background-image: linear-gradient(141deg, #9fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+}
+ul {
+  margin: 0px;
+}
+label {
+  margin-bottom: 0px;
+}
+.error-label {
+  color: red;
+  font-size: 12px;
+  margin-top: 1px;
+  display: block;
+}
+
+.icon_star_filled {
+  &.voted {
+    color: $yellow;
+  }
+}
+.header-wrapper {
+  position: relative;
+}
+.header-container {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  z-index: 100;
+  // background-color: white;
+  margin: 0;
+}
+.app-wrapper {
+  margin-top: 70px;
+}
+.loading {
+  position: fixed;
+  z-index: 1000000;
+  bottom: 0;
+  left: 0;
+  height: 100vh;
+  right: 0;
+  transform: translate(50%, 50%);
+}
+.spinner {
+  border: 5px solid transparent;
+  border-radius: 50%;
+  border-top: 5px solid $red;
+  border-right: 5px solid $red;
+  width: 50px;
+  height: 50px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.react-datepicker-wrapper {
+  margin: 5px 0px 5px 0px;
+  .react-datepicker__input-container {
+    border-radius: 5px;
+    input {
+      border: 1px solid #cccccc;
+      border-radius: 4px;
+      min-height: 42px;
+      padding-left: 10px;
+    }
+  }
+}
+.main {
+  display: block;
+  position: relative;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

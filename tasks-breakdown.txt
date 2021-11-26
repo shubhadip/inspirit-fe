@@ -1,0 +1,61 @@
+1. Api Endpoints (/signup, /login, /validate, /buy, and /sell)
+2. 500,000 add money to user wallet on signup
+3. Buy Endpoint
+  a. current price of bitcoin 
+  b. amount of bitcoin user wants to purchase
+  c. validate for enough money & proceed to increment bitcoin value
+  d. decrement wallet balance to represent new-balance
+  e. return current bitcoin & wallet details
+4. Sell Endpoint
+  a. current price of bitcoin 
+  b. validate for enough bitcoin to see & decrease bitcoin value
+  c. increment wallet amount 
+  d. return current bitcoin & wallet details 
+
+
+purchase flow:
+  params:
+    1. get Current Price of BitCoin (ideally should be check from BE)
+    2. Amount of BitCoin user wants to purchase
+
+  validations:
+    1. check if amount is their in users wallet balance
+
+  success:
+    1. increment bitcoin balance & amount
+    2. decrement users wallet balance
+
+  response: 
+    1. return updated wallet & bitcoin details
+
+
+Tables:
+User
+ id
+ username
+ password
+ final_wallet_amount
+ final_bitcoin_value
+ current_at
+ updated_at
+
+Wallet 
+ id
+ user_id
+ type(credit,debit)
+ amount
+ created_at
+ updated_at
+
+Bitcoin
+ id
+ user_id
+ wallet_id
+ current_price
+ type(buy,sell)
+ amount
+ created_at
+ updated_at
+
+
+|  4 | user2    | $2a$14$1sGX.3Mm3vThJw51pEGV.OQeUc3/1NTCXLQicppl6h0aOA8XzFEey |        500000 |             0 | 2021-11-24 04:21:34.707 | 2021-11-24 04:21:34.707 |

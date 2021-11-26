@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './styles/main.scss';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Provider, useSelector } from 'react-redux';
+import Login from 'containers/Login/Login';
+import Register from 'containers/Register/Register';
+import { store } from "./configureStore";
+import Home from 'containers/Home/Home';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { IGenericOption } from 'shared/interfaces';
 
-function App() {
+
+const Router = () => {
+  const isLoading = useSelector((state : IGenericOption) => state.common?.isLoading)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {isLoading ? (
+        <div className="loading">
+          <div className="spinner" />
+        </div>
+      ) : null}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Register />} />
+        <Route path="*" element={<Register />} />
+      </Routes>
     </div>
-  );
-}
+  )
+};
 
-export default App;
+export const App = () => {
+  return (
+    <Provider store={store}>
+        <BrowserRouter>
+          <Router />
+        </BrowserRouter>
+      <ToastContainer />
+    </Provider>
+  )
+}

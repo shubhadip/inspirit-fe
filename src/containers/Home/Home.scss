@@ -1,0 +1,73 @@
+@import "./../../styles/variables";
+.wrapper {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: grid;
+  grid-template-rows: 75px auto;
+  width: 100% !important;
+  .header-class {
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 10% 40% 40% 10%;
+    align-items: center;
+    grid-template-areas: "test logo login test1";
+  }
+  .content-class {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+  }
+}
+
+.btn {
+  color: $lightblue;
+  font-weight: 500;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  background-color: transparent;
+  padding: 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.585;
+  border-radius: 6px;
+  outline: none;
+  border: 1px solid $lightblue;
+  width: 80px;
+  grid-area: login;
+  justify-self: end;
+}
+.div-1,
+.div-2 {
+  margin: 20px;
+  padding: 20px;
+  border: 0.5px solid rgba(127, 131, 134, 0.15);
+  border-radius: 10px;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.span-wrapper {
+  display: flex;
+  align-items: center;
+  .wallet-balance {
+    font-size: 12px;
+    margin-left: 10px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .wrapper {
+    .content-class {
+      display: block;
+    }
+    .span-wrapper {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      .wallet-balance {
+        font-size: 12px;
+        margin-top: 10px;
+        margin-left: 0px;
+      }
+    }
+  }
+}
